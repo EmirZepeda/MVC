@@ -1,0 +1,62 @@
+﻿@model List<WebMVCEntraDatos.Models.Material>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Material List</title>
+</head>
+<body>
+    <h2>Material List</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre Material
+                </th>
+                <th>
+                    Marca
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Unidad de Medida
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var material in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => material.NombreMat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => material.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => material.Categoria)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => material.UnidadMedida)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = material.Idmaterial }, new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = material.Idmaterial }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

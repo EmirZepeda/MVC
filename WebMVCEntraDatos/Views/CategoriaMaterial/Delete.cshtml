@@ -1,0 +1,45 @@
+﻿@model WebMVCEntraDatos.Models.CategoriaMaterial
+
+@{
+    ViewBag.Title = "Delete";
+
+}
+
+
+<div class="container">
+    <h2>Delete</h2>
+
+    <h3>¿Seguro que quieres eliminar?</h3>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">CategoriaMaterial</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.NomCategoria)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.NomCategoria)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Extra)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Extra)
+                </dd>
+            </dl>
+
+            @using (Html.BeginForm("Delete", "CategoriaMaterial", new { id = Model.Idcategoria }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

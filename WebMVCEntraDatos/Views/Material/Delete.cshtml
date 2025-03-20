@@ -1,0 +1,66 @@
+﻿@model WebMVCEntraDatos.Models.Material
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete Material</title>
+</head>
+<body>
+    <h2>Delete Material</h2>
+
+    <h3>¿Estás seguro de que deseas eliminar este material?</h3>
+    <div>
+        <h4>Material</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreMat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreMat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Categoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UnidadMedida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnidadMedida)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</body>
+</html>

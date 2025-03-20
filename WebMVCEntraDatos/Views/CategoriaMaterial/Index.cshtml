@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <h2>Categoría Material List</h2>
+
+    <p>
+        <a href="@Url.Action("Create")">Create New</a>
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>NomCategoria</th>
+                <th>Extra</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (WebMVCEntraDatos.Models.CategoriaMaterial item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NomCategoria)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Extra)</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.Idcategoria })">Edit</a>
+                        <a href="@Url.Action("Delete", new { id = item.Idcategoria })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

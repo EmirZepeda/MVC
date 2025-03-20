@@ -1,0 +1,43 @@
+﻿@model List<WebMVCEntraDatos.Models.ContraRecibo>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Lista de ContraRecibos</h2>
+        <p>
+            <a href="@Url.Action("Create")" class="btn btn-primary">Crear Nuevo ContraRecibo</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Obra</th>
+                    <th>Extra</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (WebMVCEntraDatos.Models.ContraRecibo contraRecibo in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => contraRecibo.IdContrarecibo)</td>
+                        <td>@Html.DisplayFor(modelItem => contraRecibo.Fecha)</td>
+                        <td>@Html.DisplayFor(modelItem => contraRecibo.Obra)</td>
+                        <td>@Html.DisplayFor(modelItem => contraRecibo.Extra)</td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = contraRecibo.IdContrarecibo })" class="btn btn-primary">Editar</a>
+                            <a href="@Url.Action("Delete", new { id = contraRecibo.IdContrarecibo })" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

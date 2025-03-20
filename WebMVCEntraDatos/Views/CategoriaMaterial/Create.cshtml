@@ -1,0 +1,54 @@
+﻿@model WebMVCEntraDatos.Models.CategoriaMaterial
+
+@{
+
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">CategoriaMaterial</h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.NomCategoria, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-right" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.NomCategoria, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NomCategoria, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.Extra, htmlAttributes: new { @class = "col-md-4 col-form-label text-md-right" })
+                            <div class="col-md-6">
+                                @Html.EditorFor(model => model.Extra, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Extra, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
